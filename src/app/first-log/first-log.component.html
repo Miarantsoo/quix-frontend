@@ -1,0 +1,32 @@
+<div class="bg-white h-full flex flex-col justify-center items-center gap-y-10">
+    <p class="text-5xl mb-10 font-bold text-gray-900">Première connexion</p>
+    <div class="relative mx-auto w-full max-w-md bg-white px-6 pt-10 pb-8 shadow-2xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10">
+        <div class="w-full">
+            <div class="text-center my-3">
+                <h1 class="text-3xl font-semibold text-gray-900">Modifiez votre mot de passe</h1>
+            </div>
+            <div class="mt-5">
+                <form [formGroup]="changePasswordForm" (ngSubmit)="change()">
+                    <div class="relative mt-6">
+                        <input type="password" formControlName="password" id="email" placeholder="Email Address" class="peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none" autocomplete="NA" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"/>
+                        <label for="email" class="pointer-events-none absolute top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800">Votre nouveau mot de passe</label>
+                    </div>
+                    <div  *ngIf="f['password'].errors && f['password'].touched || f['password'].dirty" class="invalid-feedback">
+                        <span class="text-red-600 pt-3" *ngIf="f['password'].errors?.['required']">* Nouveau mot de passe requis</span>
+                    </div>
+                    <div class="relative mt-6">
+                        <input type="password" formControlName="confirmedPassword" id="password" placeholder="Password" class="peer peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"/>
+                        <label for="password" class="pointer-events-none absolute top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800">Confirmez le mot de passe</label>
+                    </div>
+                    <div  *ngIf="f['confirmedPassword'].errors && f['confirmedPassword'].touched || f['confirmedPassword'].dirty" class="invalid-feedback">
+                        <span class="text-red-600 pt-3" *ngIf="f['confirmedPassword'].errors?.['required']">* Confirmation requise</span>
+                        <span class="text-red-600 pt-3" *ngIf="f['confirmedPassword'].errors?.['matching']">* Mots de passes non cohérents</span>
+                    </div>
+                    <div class="my-6">
+                        <button type="submit" class="w-full rounded-md bg-[#013B5B] px-3 py-4 text-white hover:bg-gray-700 duration-300 transition-all focus:outline-none">Continuer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

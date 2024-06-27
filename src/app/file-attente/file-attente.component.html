@@ -1,0 +1,11 @@
+<div class="h-full w-full p-5 flex flex-row gap-x-3 overflow-scroll">
+    <div class="w-3/12" *ngFor="let medecin of medecinDispo">
+        <div class="1 relative kanban rounded-xl shadow shadow-2xl">
+            <div class="flex flex-col py-2 px-3 border-b">
+                <span class="font-medium text-lg text-gray-800">{{medecin.role}}</span>
+                <span class="test-sm text-gray-600">{{medecin.nom}} {{medecin.prenom}}</span>
+            </div>
+            <div class="min-h-[60dvh] mt-4 pl-6">veg</div>
+        </div>
+    </div>
+</div>

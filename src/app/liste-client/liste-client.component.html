@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="w-full flex flex-row justify-evenly">
+        <div class="recherche w-5/12">
+            <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Rechercher</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                </div>
+                <input [(ngModel)]="recherche" (keyup)="research()" type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-[#013B5B] focus:border-[#013B5B] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rechercher un client..." required />
+            </div>
+        </div>
+        <div class="flex justify-center items-center" *ngIf="selectedClient == 0">
+            <button mat-raised-button color="primary" class="bg-[#013B5B] text-gray-50 p-2.5 rounded-md" (click)="openDialogForm()">Ajouter client</button>
+        </div>
+    </div>
+
+    <div class="h-[68dvh] overflow-y-scroll ">
+        <table class="w-full mt-1 table-auto text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="w-full text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="w-1/12 text-center px-6 py-3">Matricule</th>
+                <th scope="col" class="w-2/12 text-center px-6 py-3">Nom</th>
+                <th scope="col" class="w-1/12 text-center px-6 py-3">Prenom(s)</th>
+                <th scope="col" class="w-1/12 text-center px-6 py-3">Sexe</th>
+                <th scope="col" class="w-2/12 text-center px-6 py-3">Date de Naissance</th>
+                <th scope="col" class="w-2/12 px-6 text-center py-3">Adresse</th>
+                <th scope="col" class="px-6 text-center py-3">Action</th>
+            </tr>
+            </thead>
+            <tbody class="h-[60dvh]">
+            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700" *ngFor="let client of clients | paginate:{itemsPerPage:parPage, currentPage: page, totalItems: totalItems}">
+                <td class="text-center px-6 py-3">{{client.numeroMatricule}}</td>
+                <td class="px-6 py-3">{{client.nom}}</td>
+                <td class="px-6 py-3">{{client.prenom}}</td>
+                <td class="px-6 py-3">{{client.sexe}}</td>
+                <td class="px-6 py-3">{{client.dateNaissance}}</td>
+                <td class="px-6 py-3">{{client.adresse}}</td>
+                <td class="px-6 py-3 m-0">
+                    @if (selectedClient == 1){
+                        <button class="w-full bg-gray-400 text-gray-50 py-1.5 px-3 rounded-md">Famille</button>
+                    } @else if (selectedClient == 0) {
+                        <button class="w-full bg-gray-400 text-gray-50 py-1.5 px-3 rounded-md">Plus</button>
+                    }
+                </td>
+            </tr>
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+    </div>
+    <div class="pagination flex justify-end items-end py-3">
+        <pagination-controls class="" (pageChange)="page=$event" ></pagination-controls>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="relative z-0 h-full w-full overflow-x-hidden">
+    <div class="absolute z-10 top-0 bg-transparent h-24 w-1/6 flex items-center justify-center">
+        <img [src]="imagePath" alt="logo quix" class="fit-image">
+    </div>
+    <div class="absolute z-10 top-24 bg-white h-5/6 w-1/6 rounded-r-sm p-2">
+        <div class="font-medium text-gray-600 text-md h-12 rounded-2xl flex justify-center items-center hover:bg-[#013B5B] hover:text-gray-50 duration-300 transition-all cursor-pointer sidebar" (click)="file()">
+            <div class="w-2/3 flex items-start gap-2">
+                <span class="w-1/12"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#4b504f" d="M32 0C14.3 0 0 14.3 0 32S14.3 64 32 64V75c0 42.4 16.9 83.1 46.9 113.1L146.7 256 78.9 323.9C48.9 353.9 32 394.6 32 437v11c-17.7 0-32 14.3-32 32s14.3 32 32 32H64 320h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V437c0-42.4-16.9-83.1-46.9-113.1L237.3 256l67.9-67.9c30-30 46.9-70.7 46.9-113.1V64c17.7 0 32-14.3 32-32s-14.3-32-32-32H320 64 32zM288 437v11H96V437c0-25.5 10.1-49.9 28.1-67.9L192 301.3l67.9 67.9c18 18 28.1 42.4 28.1 67.9z"/></svg></span>
+                <span class="">File d'attente</span>
+            </div>
+        </div>
+        <div class="font-medium text-gray-600 text-md h-12 my-1 rounded-2xl flex justify-center items-center hover:bg-[#013B5B] hover:text-gray-50 duration-300 transition-all cursor-pointer sidebar">
+            <div class="w-2/3 flex items-start gap-2">
+                <span class="w-1/12"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#4b5563" d="M96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32S96 14.3 96 32zM448 192H0V464c0 26.5 21.5 48 48 48H400c26.5 0 48-21.5 48-48V192z"/></svg></span>
+                <span class="">Rendez-vous</span>
+            </div>
+        </div>
+        <div class="font-medium text-gray-600 text-md h-12 my-1 rounded-2xl flex justify-center items-center hover:bg-[#013B5B] hover:text-gray-50 duration-300 transition-all cursor-pointer sidebar" (click)="liste(1)">
+            <div class="w-2/3 flex items-start gap-2">
+                <span class="w-1/12"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#4b5563" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></span>
+                <span class="">Clients interne</span>
+            </div>
+        </div>
+        <div class="font-medium text-gray-600 text-md h-12 my-1 rounded-2xl flex justify-center items-center hover:bg-[#013B5B] hover:text-gray-50 duration-300 transition-all cursor-pointer sidebar" (click)="liste(0)">
+            <div class="w-2/3 flex items-start gap-2">
+                <span class="w-1/12"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#4b5563" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></span>
+                <span class="">Clients externe</span>
+            </div>
+        </div>
+    </div>
+    <div class="absolute z-10 right-0 bg-white h-24 w-5/6 rounded-bl-sm">
+
+
+    </div>
+    <div class="absolute z-10 top-26 bottom-3 bg-white right-5 h-5/6 w-[80%] shadow-xl shadow-gray-300 shado mt-3 rounded-2xl ">
+        <router-outlet/>
+    </div>
+</div>
